@@ -18,7 +18,7 @@ public class Deck {
 	 * Cards are dealt from the top (highest index) down.
 	 * The next card to be dealt is at size - 1.
 	 */
-	private int size;
+	public int size;
 
 
 	/**
@@ -72,9 +72,9 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		this.size--;
+		return(cards.get(size));
 	}
-
 	/**
 	 * Generates and returns a string representation of this deck.
 	 * @return a string representation of this deck.
