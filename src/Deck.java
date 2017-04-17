@@ -36,6 +36,7 @@ public class Deck {
 				this.cards.add(thing);
 			}
 		}
+		this.size = cards.size();
 	}
 
 
@@ -54,7 +55,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		return this.cards.size();
+		return this.size;
 	}
 
 	/**
