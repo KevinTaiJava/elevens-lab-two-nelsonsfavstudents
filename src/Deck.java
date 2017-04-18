@@ -30,10 +30,10 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		for(int i = 0; i < ranks.length; i++){
-			for(int j = 0; j < suits.length; i++){
-				Card thing = new Card(ranks[i], suits[j], values[i]);
-				this.cards.add(thing);
+		for(int i = 0; i < ranks.length; i++){ //for every rank
+			for(int j = 0; j < suits.length; i++){ //for every suit
+				Card card = new Card(ranks[i], suits[j], values[i]);
+				this.cards.add(card);
 			}
 		}
 		this.size = cards.size();
@@ -72,6 +72,9 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
+		if (isEmpty()) {
+			return null;
+		}
 		this.size--;
 		return(cards.get(size));
 	}
@@ -81,32 +84,30 @@ public class Deck {
 	 */
 	@Override
 	public String toString() {
-		String rtn = "size = " + size + "\nUndealt cards: \n";
+		String result = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.get(k);
+			result = result + cards.get(k);
 			if (k != 0) {
-				rtn = rtn + ", ";
+				result = result + ", ";
 			}
 			if ((size - k) % 2 == 0) {
-				// Insert carriage returns so entire deck is visible on console.
-				rtn = rtn + "\n";
+				result = result + "\n";
 			}
 		}
 
-		rtn = rtn + "\nDealt cards: \n";
+		result = result + "\nDealt cards: \n";
 		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k);
+			result = result + cards.get(k);
 			if (k != size) {
-				rtn = rtn + ", ";
+				result = result + ", ";
 			}
 			if ((k - cards.size()) % 2 == 0) {
-				// Insert carriage returns so entire deck is visible on console.
-				rtn = rtn + "\n";
+				result = result + "\n";
 			}
 		}
 
-		rtn = rtn + "\n";
-		return rtn;
+		result = result + "\n";
+		return result;
 	}
 }
