@@ -11,7 +11,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	private ArrayList<Card> cards = new ArrayList<Card>();
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -31,7 +31,7 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		for(int i = 0; i < ranks.length; i++){ //for every rank
-			for(int j = 0; j < suits.length; i++){ //for every suit
+			for(int j = 0; j < suits.length; j++){ //for every suit
 				Card card = new Card(ranks[i], suits[j], values[i]);
 				this.cards.add(card);
 			}
