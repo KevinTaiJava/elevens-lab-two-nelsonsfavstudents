@@ -16,6 +16,9 @@ public class DeckTester {
 		
 		Deck deck = new Deck (ranks, suits, values);
 		
+		
+		System.out.println(deck.isEmpty());
+		deck.deal();
 		System.out.println(deck);
 		
 	}
